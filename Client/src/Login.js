@@ -8,7 +8,7 @@ const Login = ({ setToken, setRole }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/login', { email, password });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`, { email, password });
 
             // Save token and role in localStorage
             localStorage.setItem('truck_token', response.data.token);

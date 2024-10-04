@@ -12,7 +12,7 @@ const AdminPanel = () => {
     const fetchLoadingDetails = async () => {
         try {
             const token = localStorage.getItem('truck_token'); // Assuming you stored the JWT token in localStorage
-            const response = await axios.get('http://localhost:3000/api/loadings', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/loadings`, {
                 headers: {
                     authorization: `${token}`,
                 },

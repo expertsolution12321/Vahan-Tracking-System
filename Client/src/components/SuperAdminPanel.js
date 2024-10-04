@@ -24,7 +24,7 @@ const SuperAdminPanel = () => {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('truck_token');
-            const response = await axios.get('http://localhost:3000/api/users', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`, {
                 headers: {
                     'Authorization': `${token}`
                 }
@@ -38,7 +38,7 @@ const SuperAdminPanel = () => {
     const fetchLoadingData = async (startDate = '', endDate = '') => {
         try {
             const token = localStorage.getItem('truck_token');
-            const response = await axios.get('http://localhost:3000/api/loadings', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/loadings`, {
                 headers: {
                     'Authorization': `${token}`
                 },
@@ -74,7 +74,7 @@ const SuperAdminPanel = () => {
                 });
                 alert('User updated successfully!');
             } else {
-                await axios.post('http://localhost:3000/api/users', userDetails, {
+                await axios.post(`${process.env.REACT_APP_API_URL}/api/users`, userDetails, {
                     headers: {
                         'Authorization': `${token}`
                     }

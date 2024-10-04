@@ -8,7 +8,7 @@ const truckLoadingRoutes = require('./routes/truckLoadingRoutes');
 const authRoutes = require('./routes/authRoutes')
 dotenv.config();
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5001;
 
 // Middleware
 app.use(bodyParser.json());
@@ -20,6 +20,11 @@ mongoose.connect('mongodb://localhost:27017/truckSystem', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+
+//default server
+app.get('/',(req,res)=>{
+    res.send('hello')
+})
 
 // Routes
 app.use('/api/users', userRoutes);

@@ -55,7 +55,7 @@ const ComputerOperatorPanel = () => {
             formData.append('unloadingLocation', loadingDetails.unloadingLocation);
 
             // Submit truck loading details to the backend
-            await axios.post('http://localhost:3000/api/loadings', formData, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/loadings`, formData, {
                 headers: {
                     'authorization': `${token}`, // JWT token for authentication
                     'Content-Type': 'multipart/form-data', // Ensure correct content type for form data
@@ -89,7 +89,7 @@ const ComputerOperatorPanel = () => {
     const fetchLoadingData = async () => {
         try {
             const token = localStorage.getItem('truck_token'); // JWT token
-            const response = await axios.get('http://localhost:3000/api/loadings', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/loadings`, {
                 headers: {
                     'authorization': `${token}` // JWT token for authentication
                 }

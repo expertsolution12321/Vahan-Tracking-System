@@ -11,7 +11,7 @@ const TransporterPanel = () => {
     const fetchLoadingData = async () => {
         try {
             const token = localStorage.getItem('truck_token'); // JWT token
-            const response = await axios.get('http://localhost:3000/api/loadings', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/loadings`, {
                 headers: {
                     'authorization': `${token}` // JWT token for authentication
                 }
