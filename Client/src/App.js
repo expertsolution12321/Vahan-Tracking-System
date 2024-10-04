@@ -13,6 +13,7 @@ const App = () => {
     return (
         <Router>
             <Routes>
+            <Route path="/" element={<AuthLayout setToken={setToken} setRole={setRole} />} />
                 <Route path="auth/*" element={<AuthLayout setToken={setToken} setRole={setRole} />} />
                 <Route path="auth/admin/*" element={<AdminLayout />} />
                 {/* <Route path="/" element={<InitialRenderPage />} />
