@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
+import { FaFileCsv, FaFileExcel, FaPrint } from 'react-icons/fa';
 
 const ComputerOperatorPanel = () => {
     const [loadingDetails, setLoadingDetails] = useState({
@@ -49,7 +50,7 @@ const ComputerOperatorPanel = () => {
             formData.append('licenceDetails', loadingDetails.licenceDetails);
             formData.append('truckImage', loadingDetails.truckImage); // Attach truck image
             formData.append('itemDetails', loadingDetails.itemDetails);
-            formData.append('loadingTime', loadingDetails.loadingTime);
+            formData.append('loadingTime', loadingDetails.loadingTime); 
             formData.append('unloadingTime', loadingDetails.unloadingTime);
             formData.append('loadingLocation', loadingDetails.loadingLocation);
             formData.append('unloadingLocation', loadingDetails.unloadingLocation);
@@ -126,6 +127,7 @@ const ComputerOperatorPanel = () => {
     };
 
     return (
+        <>
         <div>
             <h2>Computer Operator Panel</h2>
             <form onSubmit={handleSubmit}>
@@ -216,6 +218,7 @@ const ComputerOperatorPanel = () => {
             </div>
 
             {/* Display loading details in a table */}
+
             <h2>Truck Loading Details</h2>
             <table>
                 <thead>
@@ -252,6 +255,97 @@ const ComputerOperatorPanel = () => {
                 </tbody>
             </table>
         </div>
+
+
+
+
+ {/* Vahicle Loading Details */}
+
+<div className="container mx-auto my-8 p-4 shadow-lg rounded-lg bg-white ">
+    <div className='justify-between flex  bg-slate-100 px-4 py-4 rounded-tl-md rounded-tr-md'>
+        <div><h2 className="text-3xl font-bold mb-4">Vahicle Loading Details</h2></div>
+        <div className='flex   items-center space-x-2'>
+                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-yellow-200 transition">
+                                    <FaFileCsv className="text-yellow-500 text-3xl" title="Export as CSV" />
+                                </div>
+                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-green-200 transition">
+                                    <FaFileExcel className="text-green-500 text-3xl" title="Export as Excel" />
+                                </div>
+                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-gray-200 transition">
+                                    <FaPrint className="text-black-500 text-3xl" title="Print" />
+                                </div>
+        </div>
+    </div>
+      
+      
+      <div className="overflow-x-auto">
+        <table className="min-w-full text-left table-auto border-collapse border">
+          <thead className='bg-slate-100 ' >
+            <tr className="border-b ">
+              <th className="px-4 py-4 text-gray-600 font-medium">Driver Name</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">RC Details</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">Licence Details</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">LoadingTimeAndDate</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">UnloadingTimeAndDate</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">Locating Location</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">UnloadingLocation</th>
+              <th className="px-4 py-4 text-gray-600 font-medium">itemDetails</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr  className="border-b odd:bg-white even:bg-gray-50">
+                <td className="px-4 py-4">Rakesh Mahuri</td>
+                <td className="px-4 py-4">B4V45CC</td>
+                <td className="px-4 py-4">LOC12785</td>
+                <td className="px-4 py-4">22/02/2023 11:44AM</td>
+                <td className="px-4 py-4">24/02/2023 10:00AM</td>
+                <td className="px-4 py-4">BBSR</td>
+                <td className="px-4 py-4">CTC</td>
+                <td className="px-4 py-4">RICE</td>
+              </tr>
+              <tr  className="border-b odd:bg-white even:bg-gray-50">
+                <td className="px-4 py-4">Rakesh Mahuri</td>
+                <td className="px-4 py-4">B4V45CC</td>
+                <td className="px-4 py-4">LOC12785</td>
+                <td className="px-4 py-4">22/02/2023 11:44AM</td>
+                <td className="px-4 py-4">24/02/2023 10:00AM</td>
+                <td className="px-4 py-4">BBSR</td>
+                <td className="px-4 py-4">CTC</td>
+                <td className="px-4 py-4">RICE</td>
+              </tr>
+              <tr  className="border-b odd:bg-white even:bg-gray-50">
+                <td className="px-4 py-4">Rakesh Mahuri</td>
+                <td className="px-4 py-4">B4V45CC</td>
+                <td className="px-4 py-4">LOC12785</td>
+                <td className="px-4 py-4">22/02/2023 11:44AM</td>
+                <td className="px-4 py-4">24/02/2023 10:00AM</td>
+                <td className="px-4 py-4">BBSR</td>
+                <td className="px-4 py-4">CTC</td>
+                <td className="px-4 py-4">RICE</td>
+              </tr>
+              <tr  className="border-b odd:bg-white even:bg-gray-50">
+                <td className="px-4 py-4">Rakesh Mahuri</td>
+                <td className="px-4 py-4">B4V45CC</td>
+                <td className="px-4 py-4">LOC12785</td>
+                <td className="px-4 py-4">22/02/2023 11:44AM</td>
+                <td className="px-4 py-4">24/02/2023 10:00AM</td>
+                <td className="px-4 py-4">BBSR</td>
+                <td className="px-4 py-4">CTC</td>
+                <td className="px-4 py-4">RICE</td>
+              </tr>
+         
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+
+
+        </>
+        
     );
 };
 
