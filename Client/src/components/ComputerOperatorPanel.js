@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
-import {FaFileCsv, FaFileExcel, FaPlus, FaPrint } from 'react-icons/fa';
+import {FaFileCsv, FaFileExcel, FaPlus, FaPrint, FaTruck, FaTruckLoading, FaUser, FaWeight } from 'react-icons/fa';
+import {  FaClipboardCheck, FaChartLine} from "react-icons/fa";
+import Dashboardcard from './Dashboardcard';
 
 const ComputerOperatorPanel = () => {
     const [loadingDetails, setLoadingDetails] = useState({
@@ -356,139 +358,7 @@ const [isOpen, setIsOpen] = useState(false);
 </div> */}
 
 
-<div className="flex justify-center items-center h-10">
-      <button
-        onClick={toggleModal}
-        className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 font-semibold mt-5"
-      >
-        Add Vahicle Details<FaPlus />
-      </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-lg">
-          <div className="bg-white w-full max-w-4xl p-8 rounded-lg shadow-lg relative">
-            {/* Close button */}
-            <button
-              onClick={toggleModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-
-            <h2 className="text-xl font-semibold mb-4">Vahicle Loading Details</h2>
-
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Driver Name */}
-              <div>
-                <label className="block text-sm font-medium">Driver Name:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter driver name"
-                />
-              </div>
-
-              {/* RC Details */}
-              <div>
-                <label className="block text-sm font-medium">RC Details:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter RC details"
-                />
-              </div>
-
-              {/* Licence Details */}
-              <div>
-                <label className="block text-sm font-medium">Licence Details:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter licence details"
-                />
-              </div>
-
-              {/* File Upload */}
-              <div>
-                <label className="block text-sm font-medium">No file chosen:</label>
-                <input
-                  type="file"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                />
-              </div>
-
-              {/* Item Details */}
-              <div>
-                <label className="block text-sm font-medium">Item Details:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter item details"
-                />
-              </div>
-
-              
-              <div>
-                <label className="block text-sm font-medium">Loading Date & Time:</label>
-                <input
-                  type="datetime-local"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                />
-              </div>
-
-              
-              <div>
-                <label className="block text-sm font-medium">Loading Location:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter loading location"
-                />
-              </div>
-
-              
-              <div>
-                <label className="block text-sm font-medium">Unloading Date & Time:</label>
-                <input
-                  type="datetime-local"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                />
-              </div>
-
-              
-              <div>
-                <label className="block text-sm font-medium">Unloading Location:</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
-                  placeholder="Enter unloading location"
-                />
-              </div>
-            </form>
-
-            
-            <div className="mt-6 flex justify-end space-x-4">
-                <button
-                            type="submit"
-                            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-                        >
-                            Submit 
-                </button>
-
-              <button
-                type="button"
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-                
-              >
-                Reset
-              </button>
-
-        
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
 
 
 
@@ -506,23 +376,168 @@ const [isOpen, setIsOpen] = useState(false);
 
  {/* Vahicle Loading Details */}
 
-<div className="p-10 shadow-lg rounded-lg bg-white  ">
-    <div className='justify-between flex  bg-slate-100 px-4 py-4 rounded-tl-md rounded-tr-md'>
-        <h2 className="text-3xl font-bold p-4">Vahicle Loading Details</h2>
-        <div className='flex   items-center space-x-2'>
-                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-yellow-200 transition">
-                                    <FaFileCsv className="text-yellow-500 text-3xl" title="Export as CSV" />
-                                </div>
-                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-green-200 transition">
-                                    <FaFileExcel className="text-green-500 text-3xl" title="Export as Excel" />
-                                </div>
-                                <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-gray-200 transition">
-                                    <FaPrint className="text-black-500 text-3xl" title="Print" />
-                                </div>
+<div className="p-5 shadow-lg rounded-lg bg-white ">
+    <div className='justify-between flex  bg-slate-100 px-4 py-4 rounded-tl-md rounded-tr-md item-center '>
+        <h2 className="text-3xl  font-bold p-4 items-center ">Vahicle Loading Details</h2>
+    {/* Record */}
+  <div className='flex    item-center space-x-2  '>
+    {/* form Button */}
+    <div className="flex flex-wrap justify-center items-center space-x-1  ">  
+  <button
+    onClick={toggleModal}
+    className="bg-blue-500 text-white px-3 py-3 rounded-lg hover:bg-blue-600 font-semibold mt-3  mb-4"
+  >
+    <span className="hidden sm:inline">Add Vehicle Details</span>
+    <FaPlus className="inline-block sm:ml-2" />  
+  </button>
+
+  {isOpen && (
+    <div className="fixed inset-0 bg-slate-950 bg-opacity-75 flex justify-center items-center backdrop-blur-lg">
+      <div className="bg-white w-full max-w-4xl p-8 rounded-lg shadow-lg relative">
+        {/* Close button */}
+        <button
+          onClick={toggleModal}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          ✕
+        </button>
+
+        <h2 className="text-xl font-semibold mb-4">Vehicle Loading Details</h2>
+
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Driver Name */}
+          <div>
+            <label className="block text-sm font-medium">Driver Name:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter driver name"
+            />
+          </div>
+
+          {/* RC Details */}
+          <div>
+            <label className="block text-sm font-medium">RC Details:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter RC details"
+            />
+          </div>
+
+          {/* Licence Details */}
+          <div>
+            <label className="block text-sm font-medium">Licence Details:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter licence details"
+            />
+          </div>
+
+          {/* File Upload */}
+          <div>
+            <label className="block text-sm font-medium">No file chosen:</label>
+            <input
+              type="file"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+            />
+          </div>
+
+          {/* Item Details */}
+          <div>
+            <label className="block text-sm font-medium">Item Details:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter item details"
+            />
+          </div>
+
+          {/* Loading Date & Time */}
+          <div>
+            <label className="block text-sm font-medium">Loading Date & Time:</label>
+            <input
+              type="datetime-local"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+            />
+          </div>
+
+          {/* Loading Location */}
+          <div>
+            <label className="block text-sm font-medium">Loading Location:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter loading location"
+            />
+          </div>
+
+          {/* Unloading Date & Time */}
+          <div>
+            <label className="block text-sm font-medium">Unloading Date & Time:</label>
+            <input
+              type="datetime-local"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+            />
+          </div>
+
+          {/* Unloading Location */}
+          <div>
+            <label className="block text-sm font-medium">Unloading Location:</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 p-2 rounded-md mt-1 focus:outline-sky-300 focus:shadow-inner"
+              placeholder="Enter unloading location"
+            />
+          </div>
+        </form>
+
+        <div className="mt-6 flex justify-end space-x-4">
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+          >
+            Submit 
+          </button>
+
+          <button
+            type="button" onClick={toggleModal}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+
+<div className="flex flex-wrap justify-center items-center space-x-1 ">
+  <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-yellow-200 transition">
+    <FaFileCsv 
+      className="text-yellow-500 sm:text-3xl text-xl" 
+      title="Export as CSV" 
+    />
+  </div>
+  <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-green-200 transition">
+    <FaFileExcel 
+      className="text-green-500 sm:text-3xl text-xl" 
+      title="Export as Excel" 
+    />
+  </div>
+  <div className="flex items-center justify-center rounded-md p-2 cursor-pointer hover:bg-gray-200 transition">
+    <FaPrint 
+      className="text-black-500 sm:text-3xl text-xl" 
+      title="Print" 
+    />
+  </div>
+</div>
+
         </div>
     </div>
       
-      
+      {/* Record Table */}
       <div className="overflow-x-auto ">
         <table className="min-w-full text-left table-auto border-collapse border">
           <thead className='bg-slate-100 ' >
@@ -588,7 +603,9 @@ const [isOpen, setIsOpen] = useState(false);
     </div>
 
 
-
+{/* Dashboard Card */}
+<Dashboardcard />
+{/* Dashboard card end */}
 
 
         </>
